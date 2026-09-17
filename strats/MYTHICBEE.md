@@ -12,21 +12,26 @@ Customer tells us about their pet → we generate a personalized avatar → they
 4. **What's the occasion?** — "Birthday"
 5. **What's the vibe?** — "Funny / Heartwarming / Epic"
 
+## Avatar Generation (from Freaktown pattern)
+
+Each character has:
+- `character.json` — identity, persona, voice, profile
+- `avatar.glb` — 3D model
+- `avatar.json` — capability manifest
+- `portrait.png` — 2D concept
+
+**For MythicBee:**
+- Pet avatar (like Bartholomew the bee)
+- Scenario presets: flying, playing, sleeping, celebrating
+- 2D rendering for cards, 3D for AR
+
 ## What We Deliver
 
-- **Digital card** — animated avatar in a scenario ($5-10)
+- **Digital card** — animated avatar in scenario ($5-10)
 - **Physical card** — printed with avatar ($15-25)
 - **Poster** — large format avatar ($20-35)
 - **Mug** — avatar on mug ($15-25)
 - **Sticker pack** — avatar stickers ($5-10)
-
-## Why It Works
-
-- **Personalization** — every gift is unique
-- **Pet owners** — emotional buyers, high conversion
-- **Digital + Physical** — infinite margin on digital
-- **No inventory** — print on demand
-- **AI-generated** — scalable, fast
 
 ## Revenue Model
 
