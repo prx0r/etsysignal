@@ -1,67 +1,106 @@
-"""Roast Compiler — turns RoastBrief into executable roast script."""
+"""Roast Compiler — turns RoastOrder into FreakTown-compatible beats."""
 import json
+import os
 from typing import List, Dict
 
 
-def compile_roast(brief: dict) -> dict:
-    """Compile a RoastBrief into a roast script."""
-    pet = brief.get("pet", {})
-    recipient = brief.get("recipient", {})
-    facts = brief.get("roast_material", [])
-    tone = brief.get("tone", "funny_cheeky")
-    custom = brief.get("custom_message", "")
+def compile_roast(order: dict) -> List[dict]:
+    """Compile an order into FreakTown-compatible beats."""
+    pet = order.get("pet_name", "your pet")
+    recipient = order.get("recipient_name", "friend")
+    occasion = order.get("occasion", "birthday")
+    facts = order.get("roast_facts", [])
+    tone = order.get("tone", "funny and cheeky")
+    signoff = order.get("signoff", f"Happy birthday, you old fraud.")
     
-    pet_name = pet.get("name", "your pet")
-    recipient_name = recipient.get("name", "friend")
-    occasion = recipient.get("occasion", "birthday")
+    beats = []
     
-    # Build roast beats from facts
-    roast_beats = []
-    for fact in facts[:6]:
-        roast_beats.append(f"{fact}... honestly, how do you live with yourself?")
+    # Opening acknowledgement
+    beats.append({
+        "id": "b1",
+        "type": "setup",
+        "text": f"{recipient}. It's me, {pet}.",
+        "pause_after_ms": 500,
+        "performance": {
+            "expression": "deadpan",
+            "gesture": "still",
+            "look": "camera"
+        }
+    })
     
-    # Build script
-    script = {
-        "intro": f"Hello {recipient_name}. It's me, {pet_name}.",
-        "premise": f"Apparently I've been asked to say something nice for your {occasion}.",
-        "roast_beats": roast_beats,
-        "affection_turn": f"But honestly {recipient_name}... you do give decent treats.",
-        "signoff": custom or f"Happy birthday, you old fraud. Love, {pet_name}.",
-        "duration_estimate": f"{30 + len(roast_beats) * 5} seconds",
-    }
+    # Premise
+    beats.append({
+        "id": "b2",
+        "type": "setup",
+        "text": f"Apparently I've been asked to say something nice for your {occasion}.",
+        "pause_after_ms": 800,
+        "performance": {
+            "expression": "skeptical",
+            "gesture": "head_tilt",
+            "look": "camera"
+        }
+    })
     
-    return script
+    # Roast beats from facts
+    for i, fact in enumerate(facts[:5]):
+        beats.append({
+            "id": f"b{i+3}",
+            "type": "punchline",
+            "text": f"{fact}... honestly, how do you live with yourself?",
+            "pause_after_ms": 900 if i < len(facts) - 1 else 1200,
+            "performance": {
+                "expression": "grin" if i % 2 == 0 else "deadpan",
+                "gesture": "shrug" if i % 2 == 0 else "point",
+                "look": "camera"
+            }
+        })
+    
+    # Affection turn
+    beats.append({
+        "id": "b_affection",
+        "type": "tag",
+        "text": f"But honestly {recipient}... you do give decent treats.",
+        "pause_after_ms": 1000,
+        "performance": {
+            "expression": "warm",
+            "gesture": "still",
+            "look": "soft"
+        }
+    })
+    
+    # Signoff
+    beats.append({
+        "id": "b_signoff",
+        "type": "closer",
+        "text": signoff,
+        "pause_after_ms": 1400,
+        "performance": {
+            "expression": "celebrate",
+            "gesture": "wave",
+            "look": "camera"
+        }
+    })
+    
+    return beats
 
 
-def generate_roast_text(script: dict) -> str:
-    """Generate full roast text from script."""
-    parts = [
-        script["intro"],
-        "",
-        script["premise"],
-        "",
-    ]
-    for beat in script["roast_beats"]:
-        parts.append(beat)
-        parts.append("")
-    parts.append(script["affection_turn"])
-    parts.append("")
-    parts.append(script["signoff"])
+def generate_roast_text(beats: List[dict]) -> str:
+    """Generate full roast text from beats."""
+    parts = []
+    for beat in beats:
+        parts.append(beat["text"])
+        parts.append("")  # pause
     return "\n".join(parts)
 
 
-# Example usage
 if __name__ == "__main__":
-    brief = {
-        "pet": {"name": "Buster", "species": "dog", "breed": "dachshund"},
-        "recipient": {"name": "James", "relationship": "dad", "occasion": "50th birthday"},
-        "roast_material": ["supports Arsenal", "thinks he's good at golf", "snores loudly"],
-        "tone": "funny and cheeky",
-        "custom_message": "Happy birthday from Sophie and Buster"
-    }
+    # Load demo order
+    order_path = os.path.join(os.path.dirname(__file__), "demo_orders", "buster-001", "order.json")
+    with open(order_path) as f:
+        order = json.load(f)
     
-    script = compile_roast(brief)
-    print(json.dumps(script, indent=2))
+    beats = compile_roast(order)
+    print(json.dumps(beats, indent=2))
     print()
     print("=== FULL ROAST ===")
-    print(generate_roast_text(script))
+    print(generate_roast_text(beats))

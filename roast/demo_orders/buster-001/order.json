@@ -1,0 +1,24 @@
+{
+  "order_id": "ETSY-DEMO-001",
+  "pet_name": "Buster",
+  "pet_species": "dachshund",
+  "pet_breed": "dachshund",
+  "recipient_name": "James",
+  "recipient_age": 50,
+  "relationship": "dad",
+  "occasion": "50th birthday",
+  "pet_personality": [
+    "thinks he owns the house",
+    "obsessed with cheese",
+    "judges James constantly"
+  ],
+  "roast_facts": [
+    "James supports Arsenal and talks about them constantly",
+    "he thinks he is good at golf",
+    "he falls asleep on the sofa every evening",
+    "he claims Buster loves him most even though Sophie feeds him",
+    "he still talks about his university days"
+  ],
+  "tone": "savage but affectionate",
+  "signoff": "Happy 50th Dad. Love Sophie and Buster."
+}
