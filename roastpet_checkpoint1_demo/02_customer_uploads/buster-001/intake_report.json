@@ -1,0 +1,128 @@
+{
+  "source_dir": "roastpet_checkpoint1_demo/02_customer_uploads/buster-001",
+  "photo_count": 8,
+  "results": [
+    {
+      "file": "pet_01_front_face.png",
+      "width": 765,
+      "height": 509,
+      "size_kb": 499.1,
+      "sharpness": 271.5,
+      "mean_brightness": 140.8,
+      "white_frac": 0.009,
+      "dark_frac": 0.002,
+      "verdict": "PASS",
+      "reasons": []
+    },
+    {
+      "file": "pet_02_full_body.png",
+      "width": 765,
+      "height": 509,
+      "size_kb": 739.2,
+      "sharpness": 1769.7,
+      "mean_brightness": 118.1,
+      "white_frac": 0.003,
+      "dark_frac": 0.005,
+      "verdict": "PASS",
+      "reasons": []
+    },
+    {
+      "file": "pet_03_side_threequarter.png",
+      "width": 765,
+      "height": 509,
+      "size_kb": 616.0,
+      "sharpness": 384.6,
+      "mean_brightness": 114.5,
+      "white_frac": 0.003,
+      "dark_frac": 0.01,
+      "verdict": "PASS_WITH_WARNING",
+      "reasons": [
+        "three-quarter rather than strict side profile; still useful"
+      ]
+    },
+    {
+      "file": "pet_04_motion_blur.png",
+      "width": 765,
+      "height": 509,
+      "size_kb": 405.7,
+      "sharpness": 59.0,
+      "mean_brightness": 126.1,
+      "white_frac": 0.003,
+      "dark_frac": 0.018,
+      "verdict": "PASS_AS_STYLE_ONLY",
+      "reasons": [
+        "soft focus: sharpness 59.0 < 60.0",
+        "motion blur: style reference only, never canonical face"
+      ]
+    },
+    {
+      "file": "pet_05_low_resolution.png",
+      "width": 640,
+      "height": 425,
+      "size_kb": 355.4,
+      "sharpness": 247.5,
+      "mean_brightness": 140.8,
+      "white_frac": 0.009,
+      "dark_frac": 0.002,
+      "verdict": "WARN",
+      "reasons": [
+        "low resolution 640x425: usable for identity only if better files exist"
+      ]
+    },
+    {
+      "file": "pet_06_overexposed.png",
+      "width": 765,
+      "height": 509,
+      "size_kb": 416.2,
+      "sharpness": 531.7,
+      "mean_brightness": 197.5,
+      "white_frac": 0.515,
+      "dark_frac": 0.0,
+      "verdict": "WARN",
+      "reasons": [
+        "overexposed: mean 198, white frac 0.51"
+      ]
+    },
+    {
+      "file": "pet_07_tight_crop.png",
+      "width": 900,
+      "height": 900,
+      "size_kb": 793.0,
+      "sharpness": 52.9,
+      "mean_brightness": 122.5,
+      "white_frac": 0.0,
+      "dark_frac": 0.003,
+      "verdict": "FAIL_GEOMETRY",
+      "reasons": [
+        "tight crop: ears/body evidence likely incomplete",
+        "soft focus: sharpness 52.9 < 60.0"
+      ]
+    },
+    {
+      "file": "pet_08_blurry.png",
+      "width": 765,
+      "height": 509,
+      "size_kb": 187.5,
+      "sharpness": 1.5,
+      "mean_brightness": 141.4,
+      "white_frac": 0.004,
+      "dark_frac": 0.0,
+      "verdict": "FAIL_IDENTITY",
+      "reasons": [
+        "sharpness 1.5 < 15.0 (unrecognizable)"
+      ]
+    }
+  ],
+  "roles": {
+    "front_face": "pet_01_front_face.png",
+    "full_body": "pet_02_full_body.png",
+    "side_view": "pet_03_side_threequarter.png",
+    "favourite": "pet_04_motion_blur.png"
+  },
+  "identity_ok": true,
+  "failed": [
+    "pet_07_tight_crop.png",
+    "pet_08_blurry.png"
+  ],
+  "contract": "freaktown-compatible: originals preserved, failures explicit, no silent replacement"
+}

@@ -1,0 +1,20 @@
+{
+  "product": "fine_art_5x7",
+  "slug": "buster-ac3326",
+  "url": "roast.pet/buster-ac3326",
+  "front": {
+    "headline": "HAPPY 50TH BIRTHDAY FROM\nSOMEONE WITH STANDARDS",
+    "photo": "pet_01_front_face.png"
+  },
+  "inside_left": {
+    "text": "Tonight's Special Guest\n\nBuster\n\nThe Late Late Dog Show"
+  },
+  "inside_right": {
+    "text": "Buster has prepared some remarks.",
+    "qr_url": "https://roast.pet/buster-ac3326",
+    "cta": "WATCH MY ROAST \u2192"
+  },
+  "back": {
+    "brand": "roast.pet"
+  }
+}

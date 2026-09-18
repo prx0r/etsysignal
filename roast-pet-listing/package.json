@@ -1,0 +1,18 @@
+{
+  "name": "roast-pet-listing",
+  "version": "0.1.0",
+  "private": true,
+  "description": "One visual engine for all roast.pet Etsy listing media. Change pet.json, re-render everything.",
+  "scripts": {
+    "still:hero": "remotion still LateLateShow Hero out/hero.png --props=./src/pet.json",
+    "render:listing": "remotion render LateLateShow ListingVideo out/listing.mp4 --props=./src/pet.json",
+    "render:vertical": "remotion render LateLateShow VerticalAd out/vertical.mp4 --props=./src/pet.json"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.0",
+    "@remotion/google-fonts": "^4.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "remotion": "^4.0.0"
+  }
+}

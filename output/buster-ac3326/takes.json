@@ -1,0 +1,9 @@
+{
+  "take1": "buster-e83ad4",
+  "take2": "buster-ac3326",
+  "direction": "cuter",
+  "style_take1": "savage",
+  "style_take2": "gentle",
+  "kept": null,
+  "note": "Customer picks a winner. A vs B \u2192 kept is the training signal."
+}

@@ -1,0 +1,130 @@
+{
+  "pipeline": "roastpet-v0",
+  "order": {
+    "order_id": "ETSY-DEMO-001",
+    "pet_name": "Buster",
+    "pet_species": "dachshund",
+    "pet_breed": "dachshund",
+    "recipient_name": "James",
+    "recipient_age": 50,
+    "relationship": "dad",
+    "occasion": "50th birthday",
+    "pet_personality": [
+      "thinks he owns the house",
+      "obsessed with cheese",
+      "judges James constantly"
+    ],
+    "roast_facts": [
+      "James supports Arsenal and talks about them constantly",
+      "he thinks he is good at golf",
+      "he falls asleep on the sofa every evening",
+      "he claims Buster loves him most even though Sophie feeds him",
+      "he still talks about his university days"
+    ],
+    "tone": "savage but affectionate",
+    "signoff": "Happy 50th Dad. Love Sophie and Buster."
+  },
+  "slug": "buster-e83ad4",
+  "style": "savage",
+  "voice": "en-GB-ThomasNeural",
+  "walkout": {
+    "genre": "rock",
+    "mood": "menacing",
+    "energy": "high",
+    "shape": "sting",
+    "seed": 42
+  },
+  "bundle_dir": "/home/ubuntu/etsysignal/output/buster-e83ad4",
+  "card_spec": {
+    "product": "fine_art_5x7",
+    "slug": "buster-e83ad4",
+    "url": "roast.pet/buster-e83ad4",
+    "front": {
+      "headline": "HAPPY 50TH BIRTHDAY FROM\nSOMEONE WITH STANDARDS",
+      "photo": "pet_01_front_face.png"
+    },
+    "inside_left": {
+      "text": "Tonight's Special Guest\n\nBuster\n\nThe Late Late Dog Show"
+    },
+    "inside_right": {
+      "text": "Buster has prepared some remarks.",
+      "qr_url": "https://roast.pet/buster-e83ad4",
+      "cta": "WATCH MY ROAST \u2192"
+    },
+    "back": {
+      "brand": "roast.pet"
+    }
+  },
+  "beats": [
+    {
+      "id": "announcer",
+      "type": "setup",
+      "text": "Tonight on the Late Late Dog Show... Buster!"
+    },
+    {
+      "id": "host_intro",
+      "type": "setup",
+      "text": "Welcome back! Tonight's special guest \u2014 fresh from destroying the couch \u2014 it's Buster!"
+    },
+    {
+      "id": "host_question",
+      "type": "setup",
+      "text": "So, Buster, tell us about James."
+    },
+    {
+      "id": "pet_opener",
+      "type": "setup",
+      "text": "James? Oh, where do I even start."
+    },
+    {
+      "id": "pet_premise",
+      "type": "escalation",
+      "text": "Apparently it's your 50th birthday. Huge achievement. You've survived another year despite needing me to supervise literally every meal."
+    },
+    {
+      "id": "roast_1",
+      "type": "punchline",
+      "text": "James supports Arsenal and talks about them constantly. But sure, you're doing great."
+    },
+    {
+      "id": "roast_2",
+      "type": "punchline",
+      "text": "Let me tell you about he thinks he is good at golf. Actually, no \u2014 the audience isn't ready."
+    },
+    {
+      "id": "roast_3",
+      "type": "punchline",
+      "text": "he falls asleep on the sofa every evening. I'd intervene, but honestly it's more entertaining to watch."
+    },
+    {
+      "id": "roast_4",
+      "type": "punchline",
+      "text": "And don't get me started on he claims Buster loves him most even though Sophie feeds him. The whole neighbourhood knows."
+    },
+    {
+      "id": "roast_5",
+      "type": "punchline",
+      "text": "he still talks about his university days. I've reported this to the authorities. Multiple times."
+    },
+    {
+      "id": "affection",
+      "type": "tag",
+      "text": "But honestly, James... you do give excellent treats. And your lap is... adequate."
+    },
+    {
+      "id": "host_followup",
+      "type": "setup",
+      "text": "Everybody \u2014 Buster has spoken! Give it up for Buster!"
+    },
+    {
+      "id": "signoff",
+      "type": "closer",
+      "text": "Happy 50th Dad. Love Sophie and Buster."
+    }
+  ],
+  "duration_s": 95.9,
+  "word_count": 169,
+  "beat_count": 13,
+  "photos_copied": 3,
+  "reroll_of": null
+}

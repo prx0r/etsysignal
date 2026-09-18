@@ -1,0 +1,35 @@
+{
+  "provider": "Prodigi",
+  "product": "fine_art_greetings_card",
+  "size": "5x7 folded",
+  "stock": "324gsm, HP Indigo",
+  "fulfilment": "UK/EU, worldwide shipping",
+  "print_areas": [
+    "front",
+    "inside_left",
+    "inside_right",
+    "back"
+  ],
+  "artwork_note": "Use the current official Prodigi template/bleed file at order time.",
+  "template_id": "comedy-club-roast-v1",
+  "slug": "buster-e83ad4",
+  "qr_url": "https://roast.pet/buster-e83ad4",
+  "front": {
+    "headline": "JAMES IS 50.",
+    "subheadline": "BUSTER HAS NOTES.",
+    "photo": "pet-1.jpg",
+    "note": "Huge pet face. One readable joke. No marketing overlay."
+  },
+  "inside_left": {
+    "copy": "James supports Arsenal and talks about them constantly. But sure, you're doing great.",
+    "purpose": "teaser / anticipation"
+  },
+  "inside_right": {
+    "signoff": "Happy 50th Dad. Love Sophie and Buster.",
+    "qr_label": "BUSTER'S NOT FINISHED.",
+    "cta": "Scan to watch the roast."
+  },
+  "back": {
+    "brand": "Made alive by roast.pet"
+  }
+}

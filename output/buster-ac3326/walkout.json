@@ -1,0 +1,10 @@
+{
+  "genre": "orchestral",
+  "mood": "confident",
+  "energy": "medium",
+  "shape": "swell",
+  "seed": 42,
+  "provider": "procedural",
+  "duration": 8,
+  "audio": "walkout.wav"
+}

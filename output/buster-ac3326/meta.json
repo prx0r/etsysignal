@@ -1,0 +1,25 @@
+{
+  "slug": "buster-ac3326",
+  "set_name": "buster-roasts-james",
+  "character": {
+    "name": "Buster",
+    "species": "dachshund",
+    "premise": "Buster roasting James for 50th birthday",
+    "vibe": "overconfident"
+  },
+  "voice": "en-AU-WilliamNeural",
+  "style": "savage but affectionate",
+  "beat_count": 13,
+  "word_count": 172,
+  "duration_s": 84.8,
+  "status": "draft",
+  "creator": "roastpet-pipeline",
+  "lineage": {
+    "relation": "original",
+    "parent": null,
+    "root": null,
+    "depth": 0
+  },
+  "response_seeds": [],
+  "created_at": "2026-09-18T01:36:59.064654+00:00"
+}
