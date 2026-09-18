@@ -1,0 +1,27 @@
+{
+  "principle": "clean, do not beautify or change identity",
+  "allowed": [
+    "EXIF orientation fix",
+    "crop/pad to preserve full pet",
+    "moderate exposure/white-balance correction",
+    "denoise/sharpen within conservative threshold",
+    "background segmentation into a separate mask",
+    "resize for model-specific inputs"
+  ],
+  "not_allowed": [
+    "invent missing ears/markings",
+    "change coat color",
+    "change eye color",
+    "merge different pets",
+    "use motion-blurred favourite as canonical identity",
+    "aggressive face restoration that changes identity"
+  ],
+  "outputs": [
+    "clean/front.png",
+    "clean/full_body.png",
+    "clean/side.png",
+    "masks/front_alpha.png",
+    "masks/full_body_alpha.png",
+    "identity/reference_manifest.json"
+  ]
+}

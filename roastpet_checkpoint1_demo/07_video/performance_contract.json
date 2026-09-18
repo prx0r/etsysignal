@@ -1,0 +1,20 @@
+{
+  "duration_target_seconds": [
+    30,
+    60
+  ],
+  "aspect_ratio": "9:16",
+  "resolution": "1080x1920",
+  "source_of_truth": "FreakTown performance bundle",
+  "audio": {
+    "speech": "required",
+    "exact_offsets": "preferred",
+    "captions": "required"
+  },
+  "avatar": {
+    "same_pog_id": "pog_demo_buster",
+    "mouth_motion": "required",
+    "blink_idle": "preferred",
+    "beat_expressions": "preferred"
+  }
+}

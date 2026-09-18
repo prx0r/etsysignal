@@ -1,0 +1,9 @@
+{
+  "case": "no_front_face",
+  "files": [
+    "pet_02_full_body.png",
+    "pet_03_side_threequarter.png"
+  ],
+  "expected": "BLOCK_AVATAR_AND_REQUEST_REPLACEMENT",
+  "message": "Please add one clear front-facing photo with both eyes and the full head visible."
+}

@@ -1,0 +1,44 @@
+{
+  "order_id": "DEMO-ETSY-100001",
+  "pog": {
+    "display_name": "Buster",
+    "species": "dog",
+    "breed": "dachshund",
+    "identity_status": "provisional",
+    "canonical_source_files": [
+      "pet_01_front_face.png",
+      "pet_02_full_body.png",
+      "pet_03_side_threequarter.png"
+    ],
+    "style_only_files": [
+      "pet_04_motion_blur.png"
+    ]
+  },
+  "recipient": {
+    "name": "James",
+    "age": 50,
+    "relationship": "Dad",
+    "occasion": "50th birthday"
+  },
+  "tone": "cheeky",
+  "lore": {
+    "recipient_facts": [
+      "supports Arsenal",
+      "thinks he is good at golf",
+      "falls asleep on the sofa by 9pm",
+      "claims Buster loves him most although Sophie feeds Buster",
+      "calls everyone else bad drivers"
+    ],
+    "pet_facts": [
+      "steals socks",
+      "stares at cheese",
+      "acts like he owns the house"
+    ]
+  },
+  "signoff": "Happy 50th Dad. Love Sophie and Buster.",
+  "product": {
+    "template_id": "comedy-club-roast-v1",
+    "card_size": "5x7",
+    "package": "card_plus_roast"
+  }
+}

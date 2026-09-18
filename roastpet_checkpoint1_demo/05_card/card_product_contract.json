@@ -1,0 +1,24 @@
+{
+  "provider": "Prodigi",
+  "product_family": "classic greeting card",
+  "working_size": "5x7 folded",
+  "production_artwork": "Use the current official Prodigi template/bleed file at order time.",
+  "template_id": "comedy-club-roast-v1",
+  "front": {
+    "headline": "JAMES IS 50.",
+    "subheadline": "BUSTER HAS NOTES.",
+    "visual": "Buster as the featured comedy performer"
+  },
+  "inside_left": {
+    "copy": "One short joke or teaser line from the roast.",
+    "purpose": "physical personalization / anticipation"
+  },
+  "inside_right": {
+    "signoff": "Happy 50th Dad. Love Sophie and Buster.",
+    "qr_label": "BUSTER'S NOT FINISHED.",
+    "cta": "Scan to watch his birthday roast."
+  },
+  "back": {
+    "brand": "Made alive by Pog.pet"
+  }
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "file": "pet_01_front_face.png",
+    "role": "front_face",
+    "expected": "PASS",
+    "notes": "Best identity reference; sharp face and eyes."
+  },
+  {
+    "file": "pet_02_full_body.png",
+    "role": "full_body",
+    "expected": "PASS",
+    "notes": "Strong body geometry reference."
+  },
+  {
+    "file": "pet_03_side_threequarter.png",
+    "role": "side_view",
+    "expected": "PASS_WITH_WARNING",
+    "notes": "Three-quarter rather than strict side profile; still useful."
+  },
+  {
+    "file": "pet_04_motion_blur.png",
+    "role": "favourite",
+    "expected": "PASS_AS_STYLE_ONLY",
+    "notes": "Identity weak due motion blur; never use as canonical face."
+  },
+  {
+    "file": "pet_05_low_resolution.png",
+    "role": "edge_case",
+    "expected": "WARN",
+    "notes": "Usable for identity only if better files exist."
+  },
+  {
+    "file": "pet_06_overexposed.png",
+    "role": "edge_case",
+    "expected": "WARN",
+    "notes": "May recover exposure but do not invent markings."
+  },
+  {
+    "file": "pet_07_tight_crop.png",
+    "role": "edge_case",
+    "expected": "FAIL_GEOMETRY",
+    "notes": "Head/ears/body evidence incomplete."
+  },
+  {
+    "file": "pet_08_blurry.png",
+    "role": "edge_case",
+    "expected": "FAIL_IDENTITY",
+    "notes": "Reject as primary identity source."
+  }
+]

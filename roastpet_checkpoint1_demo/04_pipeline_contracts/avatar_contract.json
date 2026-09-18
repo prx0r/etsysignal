@@ -1,0 +1,33 @@
+{
+  "input": [
+    "canonical pet references",
+    "species/breed hint"
+  ],
+  "output": [
+    "avatar.glb or avatar.vrm",
+    "avatar_manifest.json"
+  ],
+  "minimum_capabilities": [
+    "renderable",
+    "stable pet identity",
+    "mouth/jaw movement"
+  ],
+  "preferred_capabilities": [
+    "rigged",
+    "blink",
+    "eye gaze",
+    "expressions",
+    "gesture-compatible"
+  ],
+  "fallback_order": [
+    "rigged likeness-preserving 3D",
+    "static 3D + 2D/texture mouth treatment",
+    "2D cutout puppet",
+    "portrait reveal"
+  ],
+  "hard_fail": [
+    "wrong species",
+    "obvious coat/marking drift",
+    "different animal identity"
+  ]
+}

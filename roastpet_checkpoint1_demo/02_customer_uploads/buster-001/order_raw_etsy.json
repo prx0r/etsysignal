@@ -1,0 +1,57 @@
+{
+  "fixture_version": "1.0",
+  "source": "etsy_demo",
+  "transaction_id": "DEMO-ETSY-100001",
+  "listing_id": "DEMO-ROAST-COMEDY-CLUB-01",
+  "purchased_at": "2026-09-18T10:15:00+07:00",
+  "variation_selections": {
+    "Card size": "5x7",
+    "Package": "Card + Roast"
+  },
+  "personalization_answers": [
+    {
+      "question": "Pet photos",
+      "type": "labeled_upload",
+      "files": [
+        {
+          "label": "Front face",
+          "path": "raw/pet_01_front_face.png"
+        },
+        {
+          "label": "Full body",
+          "path": "raw/pet_02_full_body.png"
+        },
+        {
+          "label": "Side view",
+          "path": "raw/pet_03_side_threequarter.png"
+        },
+        {
+          "label": "Favourite photo",
+          "path": "raw/pet_04_motion_blur.png"
+        }
+      ]
+    },
+    {
+      "question": "Pet and birthday details",
+      "type": "text_input",
+      "answer": "Buster; James; 50; Dad"
+    },
+    {
+      "question": "Give us the gossip",
+      "type": "text_input",
+      "answer": "James supports Arsenal, thinks he is good at golf, falls asleep on the sofa by 9pm, says Buster loves him most even though Sophie feeds him, and calls everyone else bad drivers. Buster steals socks, stares at cheese and acts like he owns the house."
+    },
+    {
+      "question": "How savage should it be?",
+      "type": "dropdown",
+      "answer": "Cheeky"
+    },
+    {
+      "question": "Birthday sign-off",
+      "type": "text_input",
+      "answer": "Happy 50th Dad. Love Sophie and Buster."
+    }
+  ],
+  "shipping_country": "GB",
+  "gift_note": null
+}

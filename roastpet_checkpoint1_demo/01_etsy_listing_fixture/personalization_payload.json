@@ -1,0 +1,65 @@
+{
+  "personalization_questions": [
+    {
+      "question_type": "labeled_upload",
+      "question_text": "Pet photos",
+      "instructions": "Use clear photos of the same pet. Avoid filters, screenshots, costumes and cropped ears.",
+      "required": true,
+      "max_allowed_files": 4,
+      "options": [
+        {
+          "label": "Front face"
+        },
+        {
+          "label": "Full body"
+        },
+        {
+          "label": "Side view"
+        },
+        {
+          "label": "Favourite photo"
+        }
+      ]
+    },
+    {
+      "question_type": "text_input",
+      "question_text": "Pet and birthday details",
+      "instructions": "Pet name; recipient name; age; relation. Example: Buster; James; 50; Dad.",
+      "required": true,
+      "max_allowed_characters": 160
+    },
+    {
+      "question_type": "text_input",
+      "question_text": "Give us the gossip",
+      "instructions": "Share 3-8 specific habits, stories or running jokes. Include funny pet details too.",
+      "required": true,
+      "max_allowed_characters": 1024
+    },
+    {
+      "question_type": "dropdown",
+      "question_text": "How savage should it be?",
+      "required": true,
+      "options": [
+        {
+          "label": "Sweet"
+        },
+        {
+          "label": "Cheeky"
+        },
+        {
+          "label": "Savage"
+        },
+        {
+          "label": "Unhinged"
+        }
+      ]
+    },
+    {
+      "question_type": "text_input",
+      "question_text": "Birthday sign-off",
+      "instructions": "What should your pet say at the end? Example: Happy 50th Dad - love Sophie and Buster.",
+      "required": false,
+      "max_allowed_characters": 300
+    }
+  ]
+}

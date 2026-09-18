@@ -1,0 +1,14 @@
+{
+  "input": "Etsy transaction + personalization answers + uploaded file URLs",
+  "output": "normalized RoastOrder + local immutable copies of source assets",
+  "must_preserve": [
+    "original bytes",
+    "source labels",
+    "transaction/listing IDs",
+    "timestamps"
+  ],
+  "must_not": [
+    "silently replace failed uploads",
+    "infer a second pet from ambiguous image"
+  ]
+}

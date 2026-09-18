@@ -1,0 +1,138 @@
+{
+  "README.md": {
+    "bytes": 1938,
+    "sha256": "e296f782a9ac892015e694f8446103f91ed8f9bfddc4c2f6a7a2e3e07e543191"
+  },
+  "06_ar/AR_ACCEPTANCE.md": {
+    "bytes": 719,
+    "sha256": "c4155f95d9314e2b4cd81e24087a3fce476b34291a1310f6ba579e56a708c741"
+  },
+  "06_ar/reveal_manifest.json": {
+    "bytes": 280,
+    "sha256": "359fa14d59d582487c5fedf3f75fefbd006b419ff56dd6719cf544b9dc5b5c13"
+  },
+  "06_ar/qr_payload.txt": {
+    "bytes": 41,
+    "sha256": "dae3bac790292185ceac1131b15906c85920a49ef875f4e987c1a59a6f4b6503"
+  },
+  "09_edge_cases/multiple_pet_conflict.json": {
+    "bytes": 157,
+    "sha256": "0fb29539b0119ed64be2f1900685306fbfd4e3422b50fc0e2e7511919676248a"
+  },
+  "09_edge_cases/no_front_face.json": {
+    "bytes": 262,
+    "sha256": "7968c2fd5f25d4466414c51854876450f02320c0f6ae172e21fd0cf98e9e4649"
+  },
+  "09_edge_cases/poor_favourite_ok.json": {
+    "bytes": 341,
+    "sha256": "9d14e675e1ab8a39f18ec26e1137b2706cdbdfff0f959e10fdcf7c42f83ba6f6"
+  },
+  "03_expected_normalization/cleaning_plan.json": {
+    "bytes": 785,
+    "sha256": "e08815900f65e50495c2c9c213f39a16a2112b060b83e5a5792d706171ebbf48"
+  },
+  "03_expected_normalization/roast_order.normalized.json": {
+    "bytes": 1048,
+    "sha256": "8f5b3d4dcfa30e0233de7011e875492f028cc69ebc0ec4d7b390da1548bc436f"
+  },
+  "03_expected_normalization/photo_role_policy.json": {
+    "bytes": 786,
+    "sha256": "8cd645fb16c3889bf40c96d21446f27e210a0b85de14c0152949b4eceb08e095"
+  },
+  "00_research_notes/ETSY_PERSONALIZATION_CURRENT.md": {
+    "bytes": 1586,
+    "sha256": "03356444f46b2b8b132b51fd434e890c19534ebb5dd96e57a60d631110501f58"
+  },
+  "07_video/performance_contract.json": {
+    "bytes": 422,
+    "sha256": "f711f2e980bbcea60296b4c893467f15aed0b3aa909227da2d4f963211b282d3"
+  },
+  "07_video/mouth_motion_acceptance.json": {
+    "bytes": 264,
+    "sha256": "dfa87e4b3a0404c9bed687d7db583cbd4aa15c405bbc571da1cea229a874631a"
+  },
+  "08_qa/failure_cases.csv": {
+    "bytes": 531,
+    "sha256": "e3b96ebc3fcaa33ce24e21707d1e0db58e24bac3ceb9cdaae5ecd070cb37451a"
+  },
+  "08_qa/CHECKPOINT1_ACCEPTANCE.md": {
+    "bytes": 1250,
+    "sha256": "9a6e9226c18a62690f01a22af10b0f6e6fcd269968b23f995963734e2f5c18f3"
+  },
+  "04_pipeline_contracts/pog_identity_contract.json": {
+    "bytes": 383,
+    "sha256": "88a429d184fd54dcfa3d77c319dbbb9ca26846788e3bc2e7d302386dbbdeb7d0"
+  },
+  "04_pipeline_contracts/intake_contract.json": {
+    "bytes": 382,
+    "sha256": "e5494ffd85f263cf49528b150d6af4e781a8e5867ad2d25b343ff552f711581c"
+  },
+  "04_pipeline_contracts/avatar_contract.json": {
+    "bytes": 645,
+    "sha256": "be4b6f09bf32b4ca865d83cef4fe80fdb17c7db8e4eda63aad450c96ffcf2d28"
+  },
+  "05_card/card_product_contract.json": {
+    "bytes": 754,
+    "sha256": "250cfdc5c348edfb7607693df0ddeea163c47cc12b0d58323ab5383469da5ef1"
+  },
+  "05_card/CARD_COPY_FIXTURE.txt": {
+    "bytes": 338,
+    "sha256": "0a37b89ca127492110ce02c619adb50bbcfa08eed628071acaf3e299f1894cf0"
+  },
+  "01_etsy_listing_fixture/LISTING_COPY_FIXTURE.md": {
+    "bytes": 969,
+    "sha256": "a5167203deea886a5795a338a7908b8f63ce134ac0ac87488c694645d32387a3"
+  },
+  "01_etsy_listing_fixture/variation_plan.json": {
+    "bytes": 576,
+    "sha256": "46c7036cb7cd9574fb63fb5feb337958dce1e71e883aca40bc323144a2a5c832"
+  },
+  "01_etsy_listing_fixture/personalization_payload.json": {
+    "bytes": 1677,
+    "sha256": "3ff5853af7313a012cf648c514f7c986607b1d01fa12d2268ec793d547719786"
+  },
+  "02_customer_uploads/buster-001/order_raw_etsy.json": {
+    "bytes": 1593,
+    "sha256": "864c7ece0752ca7a6c4c9f19b8f9da98c1fa4fd58e81043a54d6f9cb5c523441"
+  },
+  "02_customer_uploads/buster-001/CUSTOMER_VIEW.txt": {
+    "bytes": 607,
+    "sha256": "16a5369065f6dc94c684d3cbbab9ec001ae62ec09da1b3005f5abe4433423120"
+  },
+  "02_customer_uploads/buster-001/upload_quality_manifest.json": {
+    "bytes": 1303,
+    "sha256": "e61c994589391cd3b83e810af4d01d58f6611042980b87cad8b6e4082bebf1fe"
+  },
+  "02_customer_uploads/buster-001/raw/pet_05_low_resolution.png": {
+    "bytes": 363900,
+    "sha256": "ed0b543844f5965713eb862fc66bb411e3fcd3a1e261c81fc643285df86b3abd"
+  },
+  "02_customer_uploads/buster-001/raw/pet_06_overexposed.png": {
+    "bytes": 426235,
+    "sha256": "8172990ec544620f380e455acfab5e316ba103dc5b554765e965eee3be66c2f9"
+  },
+  "02_customer_uploads/buster-001/raw/pet_03_side_threequarter.png": {
+    "bytes": 630793,
+    "sha256": "e5b440ee5c694c161c0d927e870d9d625e1fe70da83e25c01e30f5edd03bb2b4"
+  },
+  "02_customer_uploads/buster-001/raw/pet_02_full_body.png": {
+    "bytes": 756951,
+    "sha256": "eeaf81c43a6594fbec1b450691aa0a0ae5f827ab067e6c3800ccdef71988b254"
+  },
+  "02_customer_uploads/buster-001/raw/pet_01_front_face.png": {
+    "bytes": 511078,
+    "sha256": "4b53448696456da44081e49a68036f18099061cf1a925b280e377ec43ea4bd24"
+  },
+  "02_customer_uploads/buster-001/raw/pet_07_tight_crop.png": {
+    "bytes": 812020,
+    "sha256": "cd73aac6e53db337e28c7e227e36d04296749ed9f3995e97e99c7febc60733d3"
+  },
+  "02_customer_uploads/buster-001/raw/pet_08_blurry.png": {
+    "bytes": 191950,
+    "sha256": "30a91969d436f589ebb448973a64df7a6ed6ae80904250f958d5d6b8ad22682e"
+  },
+  "02_customer_uploads/buster-001/raw/pet_04_motion_blur.png": {
+    "bytes": 415461,
+    "sha256": "fa9aa1df6035d753966f8171b0c8e6369d61baef43e94a2d3506f24ba711b511"
+  }
+}

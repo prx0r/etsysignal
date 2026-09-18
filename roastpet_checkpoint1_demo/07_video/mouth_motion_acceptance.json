@@ -1,0 +1,11 @@
+{
+  "minimum_v1": {
+    "method": "audio-energy jaw open/close",
+    "latency_tolerance_ms": 120,
+    "must_not": "animate mouth while silent"
+  },
+  "next": {
+    "method": "phoneme/viseme-aligned lipsync",
+    "use_if": "avatar exposes enough mouth morphs"
+  }
+}

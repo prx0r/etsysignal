@@ -1,0 +1,16 @@
+{
+  "schema": "pog.identity/v1",
+  "id": "pog_demo_buster",
+  "persistent_fields": [
+    "source_assets",
+    "canonical_visual_references",
+    "species",
+    "breed_hint",
+    "appearance_manifest",
+    "voice_profile",
+    "lore",
+    "performance_history",
+    "rights_and_consent"
+  ],
+  "rule": "FreakTown performance bundles reference the Pog; they do not redefine the Pog."
+}

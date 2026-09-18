@@ -1,0 +1,27 @@
+{
+  "v1_recommendation": "No visual-template selector. One Etsy listing equals one visual roast concept.",
+  "optional_variations_later": [
+    {
+      "name": "Card size",
+      "values": [
+        "5x7",
+        "A5"
+      ],
+      "why": "physical SKU/price"
+    },
+    {
+      "name": "Package",
+      "values": [
+        "Card + Roast",
+        "Roast Only"
+      ],
+      "why": "price/SKU if offered in one listing"
+    }
+  ],
+  "separate_listing_themes_later": [
+    "Comedy Club Roast",
+    "Breaking News Roast",
+    "Awards Night Roast",
+    "Christmas Roast"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "front_face": {
+    "required": true,
+    "minimum": "face visible, eyes visible, ears/head mostly uncropped",
+    "usage": [
+      "identity embedding",
+      "face texture/reference",
+      "thumbnail"
+    ]
+  },
+  "full_body": {
+    "required": true,
+    "minimum": "torso/body proportions visible",
+    "usage": [
+      "avatar geometry",
+      "silhouette",
+      "pose reference"
+    ]
+  },
+  "side_view": {
+    "required": true,
+    "minimum": "clear profile or strong three-quarter profile",
+    "usage": [
+      "muzzle length",
+      "ear shape",
+      "body proportions"
+    ]
+  },
+  "favourite": {
+    "required": true,
+    "minimum": "same pet; may be expressive/non-ideal technically",
+    "usage": [
+      "personality/style reference only if low quality"
+    ]
+  }
+}

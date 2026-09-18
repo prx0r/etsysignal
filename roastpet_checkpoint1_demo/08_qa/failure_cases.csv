@@ -1,0 +1,8 @@
+case,input,expected
+happy_path,4 good labeled photos,proceed
+blurred_favourite,3 good + favourite blurred,proceed; favourite style-only
+no_front_face,full/side only,request replacement before avatar
+cropped_ears,front image too tight,warn; use other face reference if available
+multiple_pets,two distinct pets across labels,hard stop and request correction
+heavy_filter,beauty/cartoon filter on canonical image,request unfiltered source
+low_resolution_only,all files < ~700px useful dimension,manual/automatic quality gate

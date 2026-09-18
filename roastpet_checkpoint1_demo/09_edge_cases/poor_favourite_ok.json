@@ -1,0 +1,11 @@
+{
+  "case": "poor_favourite_ok",
+  "files": {
+    "front": "pet_01_front_face.png",
+    "full_body": "pet_02_full_body.png",
+    "side": "pet_03_side_threequarter.png",
+    "favourite": "pet_04_motion_blur.png"
+  },
+  "expected": "PROCEED",
+  "rule": "Favourite slot can be style/personality-only when canonical identity roles are strong."
+}
