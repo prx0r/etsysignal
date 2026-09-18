@@ -1,0 +1,28 @@
+{
+  "headline": "He falls asleep on the sofa every evening. I'd intervene, but honestly it's more entertaining to watch.",
+  "opening": "James. My dad.",
+  "bits": [
+    {
+      "setup": "James supports Arsenal and talks about them constantly.",
+      "punchline": "But sure, you're doing great.",
+      "reaction": "big_bark"
+    },
+    {
+      "setup": "Here's the thing about James: He thinks he is good at golf.",
+      "punchline": "Actually, no \u2014 the audience isn't ready.",
+      "reaction": "reaction_shot"
+    },
+    {
+      "setup": "He falls asleep on the sofa every evening.",
+      "punchline": "I'd intervene, but honestly it's more entertaining to watch.",
+      "reaction": "crowd_loses_it"
+    }
+  ],
+  "callback": "Remember James supports Arsenal and talks about them constantly? Still true.",
+  "signoff": "Happy 50th Dad. Love Sophie and Buster.",
+  "card_line": "He falls asleep on the sofa every evening. I'd intervene, but honestly...",
+  "visual": {
+    "pet": "buster",
+    "stage": "roast_v1"
+  }
+}

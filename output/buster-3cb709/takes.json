@@ -1,0 +1,12 @@
+{
+  "take1": "buster-ff41e5",
+  "take2": "buster-3cb709",
+  "reason": "more personal",
+  "note": null,
+  "style_take1": "savage",
+  "style_take2": "savage",
+  "voice_take1": "en-GB-ThomasNeural",
+  "voice_take2": "en-GB-ThomasNeural",
+  "kept": null,
+  "note2": "Customer picks a winner. A vs B \u2192 kept is the training signal."
+}

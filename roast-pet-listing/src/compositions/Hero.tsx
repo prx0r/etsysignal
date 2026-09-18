@@ -4,14 +4,14 @@ import {PetProps} from './types';
 
 /**
  * Hero — the Etsy thumbnail master (2000x2000).
- * Concept A "Magic card": physical card bottom-left, phone top-right,
- * eruption beam connecting them, headline band.
+ * V1 podium grammar (northstar.md): dark roast stage, spotlight,
+ * pet at podium with mic, giant THE ROAST identity, dog audience.
  * Zones must match listing/thumbs/A_spec.json.
  */
 export const Hero: React.FC<PetProps> = (pet) => {
   return (
     <AbsoluteFill style={{backgroundColor: '#EBE6DA'}}>
-      {/* phone: late-night set frame */}
+      {/* phone: roast-stage frame — pet at podium, same pet as card */}
       <div
         style={{
           position: 'absolute', left: 950, top: 250, width: 800, height: 1200,
@@ -22,7 +22,7 @@ export const Hero: React.FC<PetProps> = (pet) => {
           <Img src={staticFile(pet.showFrame)} style={{width: '100%', borderRadius: 48}} />
         ) : (
           <div style={{color: '#FFF', fontSize: 64, padding: 60}}>
-            {pet.petName} AT THE DESK
+            {pet.petName} AT THE PODIUM
           </div>
         )}
       </div>

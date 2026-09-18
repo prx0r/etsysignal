@@ -1,0 +1,41 @@
+{
+  "personalization_questions": [
+    {
+      "question_type": "labeled_upload",
+      "question_text": "Pet photos",
+      "instructions": "Upload 3-5 clear photos showing your pet's face and body.",
+      "required": true,
+      "max_allowed_files": 5
+    },
+    {
+      "question_type": "text_input",
+      "question_text": "Who are we roasting?",
+      "instructions": "Name + relationship to pet. Example: James, Biscuit's dad.",
+      "required": true,
+      "max_allowed_characters": 120
+    },
+    {
+      "question_type": "text_input",
+      "question_text": "Give us the dirt",
+      "instructions": "Tell us 3-5 funny facts, habits or embarrassing stories about them. You supply facts; your pet supplies comedy.",
+      "required": true,
+      "max_allowed_characters": 1024
+    },
+    {
+      "question_type": "dropdown",
+      "question_text": "Roast level",
+      "required": true,
+      "options": [
+        {
+          "label": "Playful"
+        },
+        {
+          "label": "Spicy"
+        },
+        {
+          "label": "Savage"
+        }
+      ]
+    }
+  ]
+}

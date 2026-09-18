@@ -1,0 +1,42 @@
+{
+  "version": "freaktown.offsets.v1",
+  "sample_rate": 24000,
+  "offsets": [
+    {
+      "id": "sting",
+      "start_ms": 0,
+      "speech_ms": 3840,
+      "pause_ms": 1000
+    },
+    {
+      "id": "opening",
+      "start_ms": 4840,
+      "speech_ms": 3144,
+      "pause_ms": 700
+    },
+    {
+      "id": "bit_1",
+      "start_ms": 8684,
+      "speech_ms": 6624,
+      "pause_ms": 1500
+    },
+    {
+      "id": "bit_2",
+      "start_ms": 16808,
+      "speech_ms": 8424,
+      "pause_ms": 1200
+    },
+    {
+      "id": "callback",
+      "start_ms": 26432,
+      "speech_ms": 6096,
+      "pause_ms": 1200
+    },
+    {
+      "id": "signoff",
+      "start_ms": 33728,
+      "speech_ms": 4488,
+      "pause_ms": 2000
+    }
+  ]
+}

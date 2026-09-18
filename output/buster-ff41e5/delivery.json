@@ -1,0 +1,122 @@
+{
+  "version": "freaktown.delivery.v1",
+  "voice": {
+    "provider": "edge-tts",
+    "voice_id": "en-GB-ThomasNeural"
+  },
+  "profile": {
+    "pace": 1.02,
+    "movement": 0.6,
+    "eye_contact": 0.9,
+    "energy": 0.8,
+    "punchline_hold_ms": 700,
+    "gesture_frequency": 0.55
+  },
+  "beats": [
+    {
+      "id": "sting",
+      "type": "setup",
+      "text": "Roast.pet presents... Buster!",
+      "speech": {
+        "pace": "normal",
+        "emphasis": 0.5
+      },
+      "performance": {
+        "expression": "neutral",
+        "gesture": "still",
+        "look": "audience"
+      },
+      "pause_after_ms": 1000
+    },
+    {
+      "id": "opening",
+      "type": "setup",
+      "text": "James. My dad.",
+      "speech": {
+        "pace": "normal",
+        "emphasis": 0.5
+      },
+      "performance": {
+        "expression": "deadpan",
+        "gesture": "tap_mic",
+        "look": "camera"
+      },
+      "pause_after_ms": 700
+    },
+    {
+      "id": "bit_1",
+      "type": "punchline",
+      "text": "James supports Arsenal and talks about them constantly. But sure, you're doing great.",
+      "speech": {
+        "pace": "normal",
+        "emphasis": 0.5
+      },
+      "performance": {
+        "expression": "grin",
+        "gesture": "point",
+        "look": "camera"
+      },
+      "pause_after_ms": 1500
+    },
+    {
+      "id": "bit_2",
+      "type": "punchline",
+      "text": "Here's the thing about James: He thinks he is good at golf. Actually, no \u2014 the audience isn't ready.",
+      "speech": {
+        "pace": "normal",
+        "emphasis": 0.5
+      },
+      "performance": {
+        "expression": "deadpan",
+        "gesture": "shrug",
+        "look": "camera"
+      },
+      "pause_after_ms": 1200
+    },
+    {
+      "id": "bit_3",
+      "type": "punchline",
+      "text": "He falls asleep on the sofa every evening. I'd intervene, but honestly it's more entertaining to watch.",
+      "speech": {
+        "pace": "normal",
+        "emphasis": 0.5
+      },
+      "performance": {
+        "expression": "grin",
+        "gesture": "point",
+        "look": "camera"
+      },
+      "pause_after_ms": 2000
+    },
+    {
+      "id": "callback",
+      "type": "tag",
+      "text": "Remember James supports Arsenal and talks about them constantly? Still true.",
+      "speech": {
+        "pace": "normal",
+        "emphasis": 0.5
+      },
+      "performance": {
+        "expression": "smirk",
+        "gesture": "point",
+        "look": "camera"
+      },
+      "pause_after_ms": 1200
+    },
+    {
+      "id": "signoff",
+      "type": "closer",
+      "text": "Happy 50th Dad. Love Sophie and Buster.",
+      "speech": {
+        "pace": "normal",
+        "emphasis": 0.5
+      },
+      "performance": {
+        "expression": "warm",
+        "gesture": "bow",
+        "look": "camera"
+      },
+      "pause_after_ms": 2000
+    }
+  ]
+}

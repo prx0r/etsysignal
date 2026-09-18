@@ -9,10 +9,13 @@ python -m roastpet.remotion output/<slug>/   # refresh src/pet.json
 cd roast-pet-listing
 npm install
 npm run still:hero        # 2000x2000 Etsy hero
-npm run render:listing    # 15s silent listing video (Etsy strips audio anyway)
+npm run render:listing    # V1 explain video (silent — Etsy strips audio anyway)
+npm run render:supercut   # V2 comedy supercut (silent)
 npm run render:vertical   # 9:16 TikTok/Reels cut
 ```
 
-Compositions: `Hero`, `ListingVideo` (CardReveal), `VerticalAd` (PhoneDemo), `HowItWorks`, `Reroll`.
+Compositions: `Hero`, `ListingVideo` (CardReveal), `Supercut`, `VerticalAd` (PhoneDemo), `HowItWorks`, `Reroll`.
+
+`src/pet.json` is exported from the bundle's `roast.json` (`python -m roastpet.remotion output/<slug>/`) — renderers consume roast.json, never raw orders.
 
 Layout zones for `Hero` must match `output/<slug>/listing/thumbs/A_spec.json`.

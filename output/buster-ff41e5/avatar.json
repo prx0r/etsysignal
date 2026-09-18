@@ -1,0 +1,65 @@
+{
+  "schema": "freak.character/v1",
+  "id": "buster-ff41e5",
+  "version": "1.0.0",
+  "identity": {
+    "name": "Buster",
+    "species": "dachshund",
+    "premise": "Buster roasting James at the podium (50th birthday)"
+  },
+  "appearance": {
+    "portrait": "portrait.png",
+    "runtime": {
+      "format": "glb",
+      "uri": "/freaks/buster-ff41e5/avatar.glb",
+      "sha256": "4296a71710a3ea4758256c321489e35a45ab6ea21d7adaeb68e8904cbb30b085",
+      "bytes": 10684
+    }
+  },
+  "embodiment": {
+    "kind": "custom"
+  },
+  "capabilities": {
+    "skeletal_animation": true,
+    "facial_animation": true,
+    "lipsync": true,
+    "eye_gaze": false,
+    "expressions": false,
+    "gestures": true,
+    "locomotion": true
+  },
+  "voice": {
+    "voice_id": "en-GB-ThomasNeural",
+    "provider": "edge-tts"
+  },
+  "provenance": {
+    "origin": "basic",
+    "provider": "freak-basic",
+    "generated_at": "2026-09-18T02:00:07.887193+00:00"
+  },
+  "rights": {
+    "ownership": "user_owned",
+    "commercial_use": true,
+    "modification": true,
+    "redistribution": false
+  },
+  "status": "done",
+  "job_id": "",
+  "mode": "basic",
+  "glb": "avatar.glb",
+  "mouth": "viseme",
+  "attempted": [
+    "basic"
+  ],
+  "done_at": "2026-09-18T02:00:07.887211+00:00",
+  "face_profile": {
+    "morph_names": [
+      "jawOpen"
+    ],
+    "profile": "JAW",
+    "pog_face_v1": [
+      "jaw_open",
+      "mouth_open"
+    ]
+  }
+}

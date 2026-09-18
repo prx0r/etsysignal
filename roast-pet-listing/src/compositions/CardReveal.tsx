@@ -31,7 +31,7 @@ export const CardReveal: React.FC<PetProps> = (pet) => {
       </div>
       <div style={{position: 'absolute', inset: 0, opacity: erupt, backgroundColor: '#14141E'}}>
         <div style={{fontSize: 150, fontWeight: 900, color: '#FFDC78', padding: 120}}>
-          {pet.petName} HAS ENTERED THE SHOW
+          {pet.petName} TAKES THE PODIUM
         </div>
       </div>
       {sub?.text ? (

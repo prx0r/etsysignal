@@ -17,6 +17,9 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 FREAKTOWN = Path("/home/ubuntu/freaktown")
 sys.path.insert(0, str(FREAKTOWN))
 
+from .comedy import normalize_order, build_roast_json, INTENSITY_MAP
+from .comedy import ROAST_JSON_SCHEMA  # noqa: F401 (contract, re-exported)
+
 OUT_DIR = REPO_ROOT / "output"
 
 # ── Voice presets ────────────────────────────────────────────────────
@@ -54,10 +57,10 @@ def load_order(order_dir: str) -> dict:
 STYLE_ROAST_TEMPLATES = {
     "savage": [
         "{fact}. But sure, you're doing great.",
-        "Let me tell you about {fact}. Actually, no — the audience isn't ready.",
-        "{fact}. I'd intervene, but honestly it's more entertaining to watch.",
+        "Here's the thing about {recipient}: {Fact}. Actually, no — the audience isn't ready.",
+        "{Fact}. I'd intervene, but honestly it's more entertaining to watch.",
         "And don't get me started on {fact}. The whole neighbourhood knows.",
-        "{fact}. I've reported this to the authorities. Multiple times.",
+        "{Fact}. I've reported this to the authorities. Multiple times.",
     ],
     "deadpan": [
         "{fact}. Fascinating. Tell me more. Actually, don't.",
@@ -89,139 +92,97 @@ STYLE_ROAST_TEMPLATES = {
     ],
 }
 
-STYLE_AFFECTION = {
-    "savage": "But honestly, {recipient}... you do give excellent treats. And your lap is... adequate.",
-    "deadpan": "{recipient}. Your treat consistency is statistically acceptable. Well done.",
-    "unhinged": "{recipient}!!! YOU ARE THE BEST HUMAN EVER!!! I LOVE YOU!!! TREATS NOW!!!",
-    "gentle": "{recipient}, you're my favourite human in the whole world, and I mean that sincerely.",
-    "movie_trailer": "But through it all... {recipient}... you were always... there with snacks.",
-}
-
-# Reroll directions (customer-facing) → generation style.
+# Reroll reasons (customer-facing, northstar.md) → generation style.
+# None = keep Take 1's style; the reason changes something else
+# (fact window, voice, or a recorded free-text note).
 REROLL_DIRECTIONS = {
     "funnier": "unhinged",
     "meaner": "savage",
+    "gentler": "gentle",
     "cuter": "gentle",
     "deadpan": "deadpan",
     "trailer": "movie_trailer",
+    "more personal": None,
+    "different voice": None,
+    "something else": None,
 }
 
+# Voice cycle for "different voice" rerolls.
+VOICE_CYCLE = list(VOICE_PRESETS.values())
 
-def compile_roast(order: dict, style: str = "savage") -> list[dict]:
-    """Compile order into Late Late Dog Show beats.
 
-    This is the comedy engine adapter — takes Etsy order data and produces
-    the beat script that FreakTown's delivery sequencer renders.
+def compile_roast(order: dict, style: str = "savage",
+                  fact_start: int = 0) -> tuple[list[dict], dict]:
+    """Compile order → canonical roast.json → V1 podium beats.
+
+    V1 grammar (northstar.md): sting → opening → 3 bits → callback →
+    signoff. Single performer at the podium, no host. Reactions become
+    pause length + gesture (bark SFX is mixed at show-render time).
+    Returns (beats, roast_json). Every renderer consumes roast.json.
     """
-    pet = order.get("pet_name", "Buster")
-    recipient = order.get("recipient_name", "James")
-    occasion = order.get("occasion", "birthday")
-    facts = order.get("roast_facts", [])
-    tone = order.get("tone", "savage but affectionate")
-    signoff = order.get("signoff", f"Happy {occasion}, {recipient}.")
+    norder = normalize_order(order)
+    pet = norder["pet"]["name"]
+    target = norder["target"]["name"]
+    signoff_default = f"Happy birthday, {target}."
 
-    beats = []
+    roast = build_roast_json(norder, STYLE_ROAST_TEMPLATES, fact_start=fact_start)
+    roast["signoff"] = order.get("signoff") or signoff_default
 
-    # ── ANNOUNCER BEAT (spoken, TTS-safe) ──────────────────────
-    beats.append({
-        "id": "announcer",
-        "type": "setup",
-        "text": f"Tonight on the Late Late Dog Show... {pet}!",
-        "pause_after_ms": 1200,
-        "performance": {"expression": "neutral", "gesture": "still", "look": "audience"},
-    })
+    REACTION_PAUSE = {"big_bark": 1500, "reaction_shot": 1200, "crowd_loses_it": 2000}
 
-    # ── HOST INTRO ───────────────────────────────────────────────
-    beats.append({
-        "id": "host_intro",
-        "type": "setup",
-        "text": f"Welcome back! Tonight's special guest — fresh from destroying the couch — it's {pet}!",
-        "pause_after_ms": 1500,
-        "performance": {"expression": "smile", "gesture": "wave", "look": "guest"},
-    })
-
-    # ── HOST QUESTION ────────────────────────────────────────────
-    beats.append({
-        "id": "host_question",
-        "type": "setup",
-        "text": f"So, {pet}, tell us about {recipient}.",
-        "pause_after_ms": 800,
-        "performance": {"expression": "curious", "gesture": "lean_in", "look": "guest"},
-    })
-
-    # ── PET OPENER ───────────────────────────────────────────────
-    opener = f"{recipient}? Oh, where do I even start."
-    beats.append({
-        "id": "pet_opener",
-        "type": "setup",
-        "text": opener,
-        "pause_after_ms": 600,
-        "performance": {"expression": "deadpan", "gesture": "sigh", "look": "camera"},
-    })
-
-    # ── PET PREMISE ──────────────────────────────────────────────
-    premise = f"Apparently it's your {occasion}. Huge achievement. You've survived another year despite needing me to supervise literally every meal."
-    beats.append({
-        "id": "pet_premise",
-        "type": "escalation",
-        "text": premise,
-        "pause_after_ms": 1000,
-        "performance": {"expression": "skeptical", "gesture": "head_tilt", "look": "camera"},
-    })
-
-    # ── ROAST BEATS FROM FACTS (style-specific architecture) ──────
-    templates = STYLE_ROAST_TEMPLATES.get(style, STYLE_ROAST_TEMPLATES["savage"])
-    for i, fact in enumerate(facts[:5]):
-        template = templates[i % len(templates)]
-        text = template.format(fact=fact)
-        beat_id = f"roast_{i+1}"
+    beats = [
+        {
+            "id": "sting",
+            "type": "setup",
+            "text": f"Roast.pet presents... {pet}!",
+            "pause_after_ms": 1000,
+            "performance": {"expression": "neutral", "gesture": "still", "look": "audience"},
+        },
+        {
+            "id": "opening",
+            "type": "setup",
+            "text": roast["opening"],
+            "pause_after_ms": 700,
+            "performance": {"expression": "deadpan", "gesture": "tap_mic", "look": "camera"},
+        },
+    ]
+    for i, bit in enumerate(roast["bits"]):
         beats.append({
-            "id": beat_id,
+            "id": f"bit_{i+1}",
             "type": "punchline",
-            "text": text,
-            "pause_after_ms": 1200 if i < len(facts) - 1 else 1500,
+            "text": f"{bit['setup']} {bit['punchline']}",
+            "pause_after_ms": REACTION_PAUSE.get(bit["reaction"], 1200),
             "performance": {
                 "expression": "grin" if i % 2 == 0 else "deadpan",
                 "gesture": "point" if i % 2 == 0 else "shrug",
                 "look": "camera",
+                "reaction": bit["reaction"],
             },
         })
-
-    # ── AFFECTION TURN (style-specific) ──────────────────────────
-    affection_text = STYLE_AFFECTION.get(style, STYLE_AFFECTION["savage"]).format(recipient=recipient)
-    beats.append({
-        "id": "affection",
-        "type": "tag",
-        "text": affection_text,
-        "pause_after_ms": 1200,
-        "performance": {"expression": "warm", "gesture": "still", "look": "soft"},
-    })
-
-    # ── HOST FOLLOWUP ────────────────────────────────────────────
-    beats.append({
-        "id": "host_followup",
-        "type": "setup",
-        "text": f"Everybody — {pet} has spoken! Give it up for {pet}!",
-        "pause_after_ms": 1000,
-        "performance": {"expression": "celebrate", "gesture": "applaud", "look": "audience"},
-    })
-
-    # ── SIGNOFF ──────────────────────────────────────────────────
-    beats.append({
-        "id": "signoff",
-        "type": "closer",
-        "text": signoff,
-        "pause_after_ms": 2000,
-        "performance": {"expression": "smile", "gesture": "wave", "look": "camera"},
-    })
-
-    return beats
+    beats += [
+        {
+            "id": "callback",
+            "type": "tag",
+            "text": roast["callback"],
+            "pause_after_ms": 1200,
+            "performance": {"expression": "smirk", "gesture": "point", "look": "camera"},
+        },
+        {
+            "id": "signoff",
+            "type": "closer",
+            "text": roast["signoff"],
+            "pause_after_ms": 2000,
+            "performance": {"expression": "warm", "gesture": "bow", "look": "camera"},
+        },
+    ]
+    return beats, roast
 
 
 def build_character(order: dict, voice: str, walkout: dict) -> dict:
-    """Build the character dict for _save_bundle."""
-    pet_name = order.get("pet_name", "Pet")
-    recipient = order.get("recipient_name", "someone")
+    """Build the character dict for _save_bundle (accepts V1 or legacy order)."""
+    norder = normalize_order(order)
+    pet_name = norder["pet"]["name"]
+    recipient = norder["target"]["name"]
     occasion = order.get("occasion", "birthday")
     species = order.get("pet_species", order.get("pet_breed", "dog"))
 
@@ -229,12 +190,12 @@ def build_character(order: dict, voice: str, walkout: dict) -> dict:
         "character": {
             "name": pet_name,
             "species": species,
-            "premise": f"{pet_name} roasting {recipient} for {occasion}",
+            "premise": f"{pet_name} roasting {recipient} at the podium ({occasion})",
             "vibe": "overconfident",
             "voice": voice,
         },
         "voice": voice,
-        "style": order.get("tone", "savage but affectionate"),
+        "style": f"roast_v1/{norder['intensity']}",
         "set_name": f"{pet_name.lower()}-roasts-{recipient.lower()}",
         "walkout": walkout,
         "creator": "roastpet-pipeline",
@@ -264,8 +225,9 @@ def copy_pet_photos(order_dir: Path, bundle_dir: Path):
 
 def generate_card_spec(order: dict, slug: str) -> dict:
     """Generate the card artwork specification (Prodigi-ready)."""
-    pet = order.get("pet_name", "Buster")
-    recipient = order.get("recipient_name", "James")
+    norder = normalize_order(order)
+    pet = norder["pet"]["name"]
+    recipient = norder["target"]["name"]
     occasion = order.get("occasion", "birthday")
 
     return {
@@ -290,40 +252,49 @@ def generate_card_spec(order: dict, slug: str) -> dict:
     }
 
 
-def run_pipeline(order_dir: str, reroll_style: str = None) -> dict:
-    """Full pipeline: order → roast → bundle → card spec → manifest.
+def run_pipeline(order_dir: str, reroll_style: str = None,
+                 fact_start: int = 0, voice_override: str = None,
+                 note: str = None, intensity_override: str = None) -> dict:
+    """Full pipeline: order → roast.json → beats → bundle → card → manifest.
 
-    Returns the full output manifest.
+    Returns the full output manifest. roast.json is written into the
+    bundle and is what every renderer consumes (northstar.md).
     """
     order_path = Path(order_dir)
     order = load_order(order_dir)
+    norder = normalize_order(order)
+    if intensity_override:
+        norder["intensity"] = intensity_override
 
-    pet_name = order.get("pet_name", "Pet")
-    recipient = order.get("recipient_name", "someone")
-    tone = order.get("tone", "deadpan")
+    pet_name = norder["pet"]["name"]
+    recipient = norder["target"]["name"]
 
-    # ── 1. Select voice + walkout from tone/style ────────────────
-    # reroll_style may be a customer direction (funnier/meaner/cuter)
-    # or a raw style name. Directions map to styles.
+    # ── 1. Select voice + walkout ──────────────────────────────────
+    # reroll_style may be a V1 reason (funnier/meaner/gentler/...) or a
+    # raw style name. Reasons map to styles via REROLL_DIRECTIONS;
+    # None keeps the order intensity (reason changes facts/voice/note).
     if reroll_style:
-        style_key = REROLL_DIRECTIONS.get(reroll_style.lower(), reroll_style.lower())
+        mapped = REROLL_DIRECTIONS.get(reroll_style.lower(), reroll_style.lower())
+        style_key = mapped or INTENSITY_MAP.get(norder["intensity"], "deadpan")
     else:
-        style_key = tone.split()[0].lower()
+        style_key = INTENSITY_MAP.get(norder["intensity"], "deadpan")
     if style_key not in VOICE_PRESETS:
         style_key = "deadpan"
-    voice = VOICE_PRESETS[style_key]
+    voice = voice_override or VOICE_PRESETS[style_key]
     walkout = {**WALKOUT_PRESETS.get(style_key, WALKOUT_PRESETS["deadpan"]), "seed": 42}
 
-    print(f"=== LATE LATE DOG SHOW PIPELINE ===")
-    print(f"  Pet:     {pet_name}")
+    print(f"=== ROAST.PET V1 PIPELINE ===")
+    print(f"  Pet:      {pet_name}")
     print(f"  Roasting: {recipient}")
-    print(f"  Style:   {style_key}")
-    print(f"  Voice:   {voice}")
+    print(f"  Intensity:{norder['intensity']} → style {style_key}")
+    print(f"  Voice:    {voice}")
     print()
 
-    # ── 2. Compile roast beats (style-specific) ──────────────────
-    print("Step 1: Compiling roast beats...")
-    beats = compile_roast(order, style=style_key)
+    # ── 2. Compile roast.json → beats ──────────────────────────────
+    print("Step 1: Compiling roast.json → beats...")
+    beats, roast = compile_roast(order, style=style_key, fact_start=fact_start)
+    print(f"  Headline: {roast['headline'][:80]}")
+    print(f"  Card line: {roast['card_line']}")
     print(f"  Generated {len(beats)} beats:")
     for b in beats:
         text_preview = b["text"][:70] + "..." if len(b["text"]) > 70 else b["text"]
@@ -339,6 +310,8 @@ def run_pipeline(order_dir: str, reroll_style: str = None) -> dict:
 
     slug, meta, offsets = _save_bundle(bundle_data)
     bundle_dir = FREAKTOWN / "freaks" / slug
+    # roast.json goes into the bundle: it is the canonical artifact.
+    (bundle_dir / "roast.json").write_text(json.dumps(roast, indent=2))
     print(f"  Bundle: freaks/{slug}/")
     print(f"  Duration: {meta.get('duration_s', '?')}s")
     print(f"  Words: {meta.get('word_count', '?')}")
@@ -370,20 +343,24 @@ def run_pipeline(order_dir: str, reroll_style: str = None) -> dict:
 
     # ── 7. Write manifest ────────────────────────────────────────
     manifest = {
-        "pipeline": "roastpet-v0",
+        "pipeline": "roastpet-v1",
         "order": order,
+        "normalized_order": norder,
         "slug": slug,
         "style": style_key,
         "voice": voice,
         "walkout": walkout,
         "bundle_dir": str(output_bundle),
         "card_spec": card_spec,
+        "roast": roast,
         "beats": [{"id": b["id"], "type": b["type"], "text": b["text"]} for b in beats],
         "duration_s": meta.get("duration_s"),
         "word_count": meta.get("word_count"),
         "beat_count": meta.get("beat_count"),
         "photos_copied": photo_count,
         "reroll_of": reroll_style,
+        "fact_start": fact_start,
+        "customer_note": note,
     }
     manifest_path = output_bundle / "pipeline_manifest.json"
     manifest_path.write_text(json.dumps(manifest, indent=2))
@@ -404,6 +381,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="roastpet Late Late Dog Show pipeline")
     parser.add_argument("order_dir", help="Path to order directory (must contain order.json)")
     parser.add_argument("--reroll", dest="reroll_style", default=None,
-                        help="Reroll with different style: deadpan, savage, unhinged, gentle, movie_trailer")
+                        help="V1 reason: funnier | meaner | gentler | more personal | different voice | something else")
     args = parser.parse_args()
     run_pipeline(args.order_dir, args.reroll_style)

@@ -6,6 +6,7 @@
   "scripts": {
     "still:hero": "remotion still LateLateShow Hero out/hero.png --props=./src/pet.json",
     "render:listing": "remotion render LateLateShow ListingVideo out/listing.mp4 --props=./src/pet.json",
+    "render:supercut": "remotion render LateLateShow Supercut out/supercut.mp4 --props=./src/pet.json",
     "render:vertical": "remotion render LateLateShow VerticalAd out/vertical.mp4 --props=./src/pet.json"
   },
   "dependencies": {

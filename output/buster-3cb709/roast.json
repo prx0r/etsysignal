@@ -1,0 +1,23 @@
+{
+  "headline": "Here's the thing about James: He still talks about his university days. Actually, no \u2014 the audience isn't ready.",
+  "opening": "James. My dad.",
+  "bits": [
+    {
+      "setup": "he claims Buster loves him most even though Sophie feeds him.",
+      "punchline": "But sure, you're doing great.",
+      "reaction": "big_bark"
+    },
+    {
+      "setup": "Here's the thing about James: He still talks about his university days.",
+      "punchline": "Actually, no \u2014 the audience isn't ready.",
+      "reaction": "reaction_shot"
+    }
+  ],
+  "callback": "Remember He claims Buster loves him most even though Sophie feeds him? Still true.",
+  "signoff": "Happy 50th Dad. Love Sophie and Buster.",
+  "card_line": "Here's the thing about James: He still talks about his university days....",
+  "visual": {
+    "pet": "buster",
+    "stage": "roast_v1"
+  }
+}

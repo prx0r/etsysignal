@@ -1,0 +1,39 @@
+{
+  "concept": "B",
+  "name": "Comedy first",
+  "promise": "Huge pet close-up at podium, physical card foregrounded.",
+  "canvas": 2000,
+  "zones": {
+    "pet": [
+      200,
+      150,
+      1800,
+      1250
+    ],
+    "podium": [
+      200,
+      1000,
+      1800,
+      1300
+    ],
+    "card": [
+      1150,
+      1300,
+      1800,
+      1850
+    ],
+    "headline": [
+      200,
+      1350,
+      1100,
+      1600
+    ]
+  },
+  "rules": [
+    "1500-2000px square master",
+    "pet enormous",
+    "card print carries the joke, no marketing overlay",
+    "no AI iconography, no gradients",
+    "must read at 150px Etsy-search size"
+  ]
+}

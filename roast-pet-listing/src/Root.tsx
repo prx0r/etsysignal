@@ -5,6 +5,7 @@ import {CardReveal} from './compositions/CardReveal';
 import {PhoneDemo} from './compositions/PhoneDemo';
 import {HowItWorks} from './compositions/HowItWorks';
 import {Reroll} from './compositions/Reroll';
+import {Supercut} from './compositions/Supercut';
 import pet from './pet.json';
 
 export const RemotionRoot: React.FC = () => {
@@ -53,6 +54,16 @@ export const RemotionRoot: React.FC = () => {
         id="Reroll"
         component={Reroll}
         durationInFrames={300}
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={pet}
+      />
+      {/* V2: comedy supercut — three roast cards + end title */}
+      <Composition
+        id="Supercut"
+        component={Supercut}
+        durationInFrames={450}
         fps={30}
         width={1920}
         height={1080}

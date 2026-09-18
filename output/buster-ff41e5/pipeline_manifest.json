@@ -1,0 +1,147 @@
+{
+  "pipeline": "roastpet-v1",
+  "order": {
+    "order_id": "ETSY-DEMO-001",
+    "pet_name": "Buster",
+    "pet_species": "dachshund",
+    "pet_breed": "dachshund",
+    "recipient_name": "James",
+    "recipient_age": 50,
+    "relationship": "dad",
+    "occasion": "50th birthday",
+    "pet_personality": [
+      "thinks he owns the house",
+      "obsessed with cheese",
+      "judges James constantly"
+    ],
+    "roast_facts": [
+      "James supports Arsenal and talks about them constantly",
+      "he thinks he is good at golf",
+      "he falls asleep on the sofa every evening",
+      "he claims Buster loves him most even though Sophie feeds him",
+      "he still talks about his university days"
+    ],
+    "tone": "savage but affectionate",
+    "signoff": "Happy 50th Dad. Love Sophie and Buster."
+  },
+  "normalized_order": {
+    "pet": {
+      "name": "Buster"
+    },
+    "target": {
+      "name": "James",
+      "relationship": "dad"
+    },
+    "facts": [
+      "James supports Arsenal and talks about them constantly",
+      "he thinks he is good at golf",
+      "he falls asleep on the sofa every evening",
+      "he claims Buster loves him most even though Sophie feeds him",
+      "he still talks about his university days"
+    ],
+    "intensity": "savage"
+  },
+  "slug": "buster-ff41e5",
+  "style": "savage",
+  "voice": "en-GB-ThomasNeural",
+  "walkout": {
+    "genre": "rock",
+    "mood": "menacing",
+    "energy": "high",
+    "shape": "sting",
+    "seed": 42
+  },
+  "bundle_dir": "/home/ubuntu/etsysignal/output/buster-ff41e5",
+  "card_spec": {
+    "product": "fine_art_5x7",
+    "slug": "buster-ff41e5",
+    "url": "roast.pet/buster-ff41e5",
+    "front": {
+      "headline": "HAPPY 50TH BIRTHDAY FROM\nSOMEONE WITH STANDARDS",
+      "photo": "pet_01_front_face.png"
+    },
+    "inside_left": {
+      "text": "Tonight's Special Guest\n\nBuster\n\nThe Late Late Dog Show"
+    },
+    "inside_right": {
+      "text": "Buster has prepared some remarks.",
+      "qr_url": "https://roast.pet/buster-ff41e5",
+      "cta": "WATCH MY ROAST \u2192"
+    },
+    "back": {
+      "brand": "roast.pet"
+    }
+  },
+  "roast": {
+    "headline": "He falls asleep on the sofa every evening. I'd intervene, but honestly it's more entertaining to watch.",
+    "opening": "James. My dad.",
+    "bits": [
+      {
+        "setup": "James supports Arsenal and talks about them constantly.",
+        "punchline": "But sure, you're doing great.",
+        "reaction": "big_bark"
+      },
+      {
+        "setup": "Here's the thing about James: He thinks he is good at golf.",
+        "punchline": "Actually, no \u2014 the audience isn't ready.",
+        "reaction": "reaction_shot"
+      },
+      {
+        "setup": "He falls asleep on the sofa every evening.",
+        "punchline": "I'd intervene, but honestly it's more entertaining to watch.",
+        "reaction": "crowd_loses_it"
+      }
+    ],
+    "callback": "Remember James supports Arsenal and talks about them constantly? Still true.",
+    "signoff": "Happy 50th Dad. Love Sophie and Buster.",
+    "card_line": "He falls asleep on the sofa every evening. I'd intervene, but honestly...",
+    "visual": {
+      "pet": "buster",
+      "stage": "roast_v1"
+    }
+  },
+  "beats": [
+    {
+      "id": "sting",
+      "type": "setup",
+      "text": "Roast.pet presents... Buster!"
+    },
+    {
+      "id": "opening",
+      "type": "setup",
+      "text": "James. My dad."
+    },
+    {
+      "id": "bit_1",
+      "type": "punchline",
+      "text": "James supports Arsenal and talks about them constantly. But sure, you're doing great."
+    },
+    {
+      "id": "bit_2",
+      "type": "punchline",
+      "text": "Here's the thing about James: He thinks he is good at golf. Actually, no \u2014 the audience isn't ready."
+    },
+    {
+      "id": "bit_3",
+      "type": "punchline",
+      "text": "He falls asleep on the sofa every evening. I'd intervene, but honestly it's more entertaining to watch."
+    },
+    {
+      "id": "callback",
+      "type": "tag",
+      "text": "Remember James supports Arsenal and talks about them constantly? Still true."
+    },
+    {
+      "id": "signoff",
+      "type": "closer",
+      "text": "Happy 50th Dad. Love Sophie and Buster."
+    }
+  ],
+  "duration_s": 48.1,
+  "word_count": 73,
+  "beat_count": 7,
+  "photos_copied": 3,
+  "reroll_of": null,
+  "fact_start": 0,
+  "customer_note": null
+}

@@ -37,9 +37,9 @@ Render: `npm run render:listing` in roast-pet-listing/ (CardReveal composition).
 | 1 | 0-60 | 0-2s | Normal dog photo, slow push-in | *(none — let the photo breathe)* |
 | 2 | 60-120 | 2-4s | Photo folds/transforms into the printed birthday card | A CARD |
 | 3 | 120-180 | 4-6s | Phone slides into frame over the card, scan line sweeps | SCAN IT |
-| 4 | 180-300 | 6-10s | Late-night set erupts: {pet} at desk, dog audience mid-eruption | “{roast}” |
+| 4 | 180-300 | 6-10s | Roast stage erupts: {pet} at podium, spotlight, dog audience mid-eruption | “{roast}” |
 | 5 | 300-360 | 10-12s | Rapid second example: shocked Chihuahua cutaway | {recipient.upper()} HAS BEEN ROASTED |
-| 6 | 360-450 | 12-15s | Title card on show-set background | YOUR PET. THEIR OWN COMEDY SHOW. |
+| 6 | 360-450 | 12-15s | Title card: THE ROAST | YOUR PET. THEIR OWN COMEDY SHOW. |
 
 Subtitle rules: min 96px, white with black drop shadow, max 8 words per card.
 No dialogue audio, no voiceover, no music dependency — the video must land muted on autoplay.

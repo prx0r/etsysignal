@@ -1,0 +1,137 @@
+{
+  "pipeline": "roastpet-v1",
+  "order": {
+    "order_id": "ETSY-DEMO-001",
+    "pet_name": "Buster",
+    "pet_species": "dachshund",
+    "pet_breed": "dachshund",
+    "recipient_name": "James",
+    "recipient_age": 50,
+    "relationship": "dad",
+    "occasion": "50th birthday",
+    "pet_personality": [
+      "thinks he owns the house",
+      "obsessed with cheese",
+      "judges James constantly"
+    ],
+    "roast_facts": [
+      "James supports Arsenal and talks about them constantly",
+      "he thinks he is good at golf",
+      "he falls asleep on the sofa every evening",
+      "he claims Buster loves him most even though Sophie feeds him",
+      "he still talks about his university days"
+    ],
+    "tone": "savage but affectionate",
+    "signoff": "Happy 50th Dad. Love Sophie and Buster."
+  },
+  "normalized_order": {
+    "pet": {
+      "name": "Buster"
+    },
+    "target": {
+      "name": "James",
+      "relationship": "dad"
+    },
+    "facts": [
+      "James supports Arsenal and talks about them constantly",
+      "he thinks he is good at golf",
+      "he falls asleep on the sofa every evening",
+      "he claims Buster loves him most even though Sophie feeds him",
+      "he still talks about his university days"
+    ],
+    "intensity": "savage"
+  },
+  "slug": "buster-3cb709",
+  "style": "savage",
+  "voice": "en-GB-ThomasNeural",
+  "walkout": {
+    "genre": "rock",
+    "mood": "menacing",
+    "energy": "high",
+    "shape": "sting",
+    "seed": 42
+  },
+  "bundle_dir": "/home/ubuntu/etsysignal/output/buster-3cb709",
+  "card_spec": {
+    "product": "fine_art_5x7",
+    "slug": "buster-3cb709",
+    "url": "roast.pet/buster-3cb709",
+    "front": {
+      "headline": "HAPPY 50TH BIRTHDAY FROM\nSOMEONE WITH STANDARDS",
+      "photo": "pet_01_front_face.png"
+    },
+    "inside_left": {
+      "text": "Tonight's Special Guest\n\nBuster\n\nThe Late Late Dog Show"
+    },
+    "inside_right": {
+      "text": "Buster has prepared some remarks.",
+      "qr_url": "https://roast.pet/buster-3cb709",
+      "cta": "WATCH MY ROAST \u2192"
+    },
+    "back": {
+      "brand": "roast.pet"
+    }
+  },
+  "roast": {
+    "headline": "Here's the thing about James: He still talks about his university days. Actually, no \u2014 the audience isn't ready.",
+    "opening": "James. My dad.",
+    "bits": [
+      {
+        "setup": "he claims Buster loves him most even though Sophie feeds him.",
+        "punchline": "But sure, you're doing great.",
+        "reaction": "big_bark"
+      },
+      {
+        "setup": "Here's the thing about James: He still talks about his university days.",
+        "punchline": "Actually, no \u2014 the audience isn't ready.",
+        "reaction": "reaction_shot"
+      }
+    ],
+    "callback": "Remember He claims Buster loves him most even though Sophie feeds him? Still true.",
+    "signoff": "Happy 50th Dad. Love Sophie and Buster.",
+    "card_line": "Here's the thing about James: He still talks about his university days....",
+    "visual": {
+      "pet": "buster",
+      "stage": "roast_v1"
+    }
+  },
+  "beats": [
+    {
+      "id": "sting",
+      "type": "setup",
+      "text": "Roast.pet presents... Buster!"
+    },
+    {
+      "id": "opening",
+      "type": "setup",
+      "text": "James. My dad."
+    },
+    {
+      "id": "bit_1",
+      "type": "punchline",
+      "text": "he claims Buster loves him most even though Sophie feeds him. But sure, you're doing great."
+    },
+    {
+      "id": "bit_2",
+      "type": "punchline",
+      "text": "Here's the thing about James: He still talks about his university days. Actually, no \u2014 the audience isn't ready."
+    },
+    {
+      "id": "callback",
+      "type": "tag",
+      "text": "Remember He claims Buster loves him most even though Sophie feeds him? Still true."
+    },
+    {
+      "id": "signoff",
+      "type": "closer",
+      "text": "Happy 50th Dad. Love Sophie and Buster."
+    }
+  ],
+  "duration_s": 40.2,
+  "word_count": 62,
+  "beat_count": 6,
+  "photos_copied": 3,
+  "reroll_of": "more personal",
+  "fact_start": 3,
+  "customer_note": null
+}

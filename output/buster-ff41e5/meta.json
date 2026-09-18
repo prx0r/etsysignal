@@ -1,0 +1,25 @@
+{
+  "slug": "buster-ff41e5",
+  "set_name": "buster-roasts-james",
+  "character": {
+    "name": "Buster",
+    "species": "dachshund",
+    "premise": "Buster roasting James at the podium (50th birthday)",
+    "vibe": "overconfident"
+  },
+  "voice": "en-GB-ThomasNeural",
+  "style": "roast_v1/savage",
+  "beat_count": 7,
+  "word_count": 73,
+  "duration_s": 48.1,
+  "status": "draft",
+  "creator": "roastpet-pipeline",
+  "lineage": {
+    "relation": "original",
+    "parent": null,
+    "root": null,
+    "depth": 0
+  },
+  "response_seeds": [],
+  "created_at": "2026-09-18T02:00:07.883228+00:00"
+}

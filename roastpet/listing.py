@@ -1,123 +1,104 @@
 #!/usr/bin/env python3
-"""roastpet listing — Etsy listing pack from a built bundle.
+"""roastpet listing — V1 Etsy listing pack from a built bundle.
 
 Usage:
     python -m roastpet.listing output/<slug>/
 
-Writes listing/ into the bundle:
-  title.txt, description.md, personalization.json, tags.txt,
-  image_shotlist.md
-
-Launch decision (variation_plan.json + strategy):
-  ONE listing = ONE concept (Late Late Dog Show). No show-style selector
-  in v0 — buyer personalizes content, not layout. Show styles become
-  separate listings later (Breaking News, Awards Night, Christmas).
+V1 (northstar.md): ONE listing = ONE concept (podium roast). Four
+personalization fields, 8 images, 2 silent videos. Buyer personalizes
+content, never layout.
 """
 import json
 import sys
 from pathlib import Path
 
 
-TITLE = "Personalized Pet Roast Card + Video | Your Dog on a Late-Night Show | Funny Custom Birthday Card From Your Pet"
+TITLE = "Personalized Pet Roast Birthday Card + Video | Watch Your Pet Roast You | Funny Custom Card From Your Dog"
 
 TAGS = [
     "personalized pet roast", "funny dog birthday card", "custom pet video",
-    "dog late night show", "pet comedy gift", "funny birthday card for him",
-    "dog dad gift", "talking pet video", "custom qr card", "pet lover gift",
+    "pet roast card", "funny birthday card for him", "dog dad gift",
+    "scan to watch card", "qr birthday card", "pet lover gift",
     "funny 50th birthday", "dog roast video", "personalised pet gift",
+    "birthday card from dog",
 ]
 
+# Exactly four fields. No show-style selector (one listing = one concept).
 PERSONALIZATION = {
     "personalization_questions": [
         {
             "question_type": "labeled_upload",
             "question_text": "Pet photos",
-            "instructions": "Use clear photos of the same pet. Avoid filters, screenshots, costumes and cropped ears.",
+            "instructions": "Upload 3-5 clear photos showing your pet's face and body.",
             "required": True,
-            "max_allowed_files": 4,
-            "options": [{"label": "Front face"}, {"label": "Full body"},
-                        {"label": "Side view"}, {"label": "Favourite photo"}],
+            "max_allowed_files": 5,
         },
         {
             "question_type": "text_input",
-            "question_text": "Pet and birthday details",
-            "instructions": "Pet name; recipient name; age; relation. Example: Buster; James; 50; Dad.",
+            "question_text": "Who are we roasting?",
+            "instructions": "Name + relationship to pet. Example: James, Biscuit's dad.",
             "required": True,
-            "max_allowed_characters": 160,
+            "max_allowed_characters": 120,
         },
         {
             "question_type": "text_input",
-            "question_text": "Give us the gossip",
-            "instructions": "Share 3-8 specific habits, stories or running jokes. Include funny pet details too.",
+            "question_text": "Give us the dirt",
+            "instructions": "Tell us 3-5 funny facts, habits or embarrassing stories about them. You supply facts; your pet supplies comedy.",
             "required": True,
             "max_allowed_characters": 1024,
         },
         {
             "question_type": "dropdown",
-            "question_text": "How savage should it be?",
+            "question_text": "Roast level",
             "required": True,
-            "options": [{"label": "Sweet"}, {"label": "Cheeky"},
-                        {"label": "Savage"}, {"label": "Unhinged"}],
-        },
-        {
-            "question_type": "text_input",
-            "question_text": "Birthday sign-off",
-            "instructions": "What should your pet say at the end? Example: Happy 50th Dad - love Sophie and Buster.",
-            "required": False,
-            "max_allowed_characters": 300,
+            "options": [{"label": "Playful"}, {"label": "Spicy"}, {"label": "Savage"}],
         },
     ]
 }
 
-# Dropdown label → pipeline style (reroll.py directions).
-SAVAGE_MAP = {"Sweet": "gentle", "Cheeky": "deadpan",
-              "Savage": "savage", "Unhinged": "unhinged"}
+# Dropdown label → pipeline intensity.
+INTENSITY_MAP = {"Playful": "playful", "Spicy": "spicy", "Savage": "savage"}
 
 
 def description_for(order: dict) -> str:
-    pet = order.get("pet_name", "your pet")
-    return f"""YOUR PET. THEIR OWN COMEDY SHOW.
+    return """PERSONALIZED PET ROAST CARD → SCAN IT → YOUR PET ROASTS YOU.
 
-Upload photos of {pet}-style greatness and give us the gossip. We turn your pet into the guest of honour on their very own late-night show — then print it all on a premium birthday card with a QR code that plays the roast.
+Your pet, behind a podium, under a spotlight, roasting the birthday legend in your life. Printed on a premium 5x7 card with a QR code that plays the actual roast.
 
 WHAT YOU GET
-- Premium 5x7 Fine Art birthday card, personalised with your pet's photo and headline
-- A private show link (QR code inside the card): your pet roasts the recipient, late-night-show style
-- 1 FREE directed reroll — funnier, meaner or cuter — you keep both takes
+- Premium 5x7 Fine Art birthday card with your pet's roast portrait + killer headline
+- QR code inside the card → private roast video (30-60 seconds)
+- 1 FREE reroll — funnier, meaner, gentler, more personal, or a different voice. You keep both takes.
 
 HOW IT WORKS
-1. Upload 4 photos of your pet (front face, full body, side view, favourite)
-2. Tell us the gossip — 3-8 specific habits, stories, running jokes
-3. Pick how savage it should be
-4. We generate the show, print the card and ship it
+1. Upload 3-5 photos of your pet
+2. Tell us who we're roasting
+3. Give us the dirt — 3-5 funny facts or stories
+4. Pick the roast level. Your pet does the rest.
 
-PLEASE UPLOAD THE SAME PET IN ALL FOUR SLOTS.
-- Front face — eyes visible, ears/head not cropped
-- Full body — all four legs/body shape visible if possible
-- Side view — useful for building the avatar
-- Favourite photo — personality/reference
-
-Best results: daylight, sharp image, no filters or stickers. Phone photos are fine.
-
-The card design shown is the design you receive. You personalize the content, not the layout — so what you see is what arrives, starring your pet.
+YOU GIVE US THE DIRT. YOUR PET DOES THE REST.
+Best results: daylight, sharp photos, no filters or stickers. Phone photos are fine.
+The card design shown is the design you receive — you personalize the content, not the layout.
 """
 
 
-def shotlist_for(slug: str) -> str:
-    return f"""# Listing image shotlist — {slug}
+def shotlist_for(slug: str, roast: dict) -> str:
+    line = roast.get("card_line", "")
+    return f"""# Listing images — {slug} (8 images, northstar.md)
 
-1. HERO — physical 5x7 card at 3/4 angle + envelope, huge pet face, printed headline readable. No marketing overlay.
-2. MAGIC — card → QR → phone showing the Late Late Dog Show.
-3. SHOW — phone close-up: host, guest pet, dog audience mid-eruption. Giant subtitle.
-4. CARD OPEN — physical card open, QR visible inside right.
-5. PERSONALIZATION — photos + gossip facts → character.
-6. REROLL — Take 1 ↔ Take 2, "1 FREE REROLL".
-7. GIFT REACTION — someone opening the card.
-8. DIMENSIONS — card size, 324gsm stock, texture.
-9. MORE SHOWS — coming soon: News, Awards Night, Christmas.
-10. TURNAROUND — production + delivery times, what's included.
+1. THUMBNAIL — finished card, 2000x2000+: THE ROAST / pet at podium / "{line}" / envelope / phone corner showing SAME pet on stage. The product explains the joke.
+2. MAGIC — YOUR PET ROASTS YOU. Upload pet → Receive card → Scan → Watch roast.
+3. SHOW — phone fullscreen: pet at podium, subtitle, dog audience.
+4. PERSONALIZATION — the 4 inputs. YOU GIVE US THE DIRT. YOUR PET DOES THE REST.
+5. PHYSICAL CARD — front / inside / back. A real printed card arrives.
+6. REROLL — Includes one free reroll. Take 1 / Take 2.
+7. GIFTING — recipient scanning card / laughing.
+8. EXAMPLES — cat, Labrador, dachshund. Same roast stage. Not just dogs.
 
-Video (3-15s, NO AUDIO — Etsy strips it): photo → card → phone scan → show erupts → YOUR PET. THEIR OWN COMEDY SHOW.
+# Listing videos (TWO, 3-15s each, NO AUDIO — Etsy strips it)
+
+V1 Explain: pet photo → roast card → QR scan → pet appears on roast stage → recipient laughing. Burned-in captions.
+V2 Comedy supercut: BISCUIT ROASTS JAMES cut MABEL ROASTS MUM cut GARY ROASTS DAD, audience insane. End: YOUR PET. YOUR ROAST.
 """
 
 
@@ -125,20 +106,21 @@ def build_listing(bundle_dir: str) -> dict:
     bdir = Path(bundle_dir)
     manifest = json.loads((bdir / "pipeline_manifest.json").read_text())
     order = manifest["order"]
+    roast = manifest.get("roast", {})
 
     ldir = bdir / "listing"
     ldir.mkdir(exist_ok=True)
     (ldir / "title.txt").write_text(TITLE + "\n")
     (ldir / "description.md").write_text(description_for(order))
     (ldir / "personalization.json").write_text(json.dumps(PERSONALIZATION, indent=2))
-    (ldir / "savage_map.json").write_text(json.dumps(SAVAGE_MAP, indent=2))
+    (ldir / "intensity_map.json").write_text(json.dumps(INTENSITY_MAP, indent=2))
     (ldir / "tags.txt").write_text("\n".join(TAGS) + "\n")
-    (ldir / "image_shotlist.md").write_text(shotlist_for(manifest["slug"]))
+    (ldir / "image_shotlist.md").write_text(shotlist_for(manifest["slug"], roast))
 
-    print(f"=== LISTING: {manifest['slug']} ===")
+    print(f"=== LISTING V1: {manifest['slug']} ===")
     print(f"  Title: {TITLE[:70]}...")
     print(f"  Tags: {len(TAGS)}")
-    print(f"  Questions: {len(PERSONALIZATION['personalization_questions'])}")
+    print(f"  Questions: {len(PERSONALIZATION['personalization_questions'])} (V1: four)")
     print(f"  Files: {ldir}/")
     return {"title": TITLE, "tags": TAGS}
 

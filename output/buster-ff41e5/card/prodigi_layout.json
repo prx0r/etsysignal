@@ -1,0 +1,36 @@
+{
+  "provider": "Prodigi",
+  "product": "fine_art_greetings_card",
+  "size": "5x7 folded",
+  "stock": "324gsm, HP Indigo",
+  "fulfilment": "UK/EU, worldwide shipping",
+  "print_areas": [
+    "front",
+    "inside_left",
+    "inside_right",
+    "back"
+  ],
+  "artwork_note": "Use the current official Prodigi template/bleed file at order time.",
+  "template_id": "roast-v1-podium",
+  "slug": "buster-ff41e5",
+  "qr_url": "https://roast.pet/r/buster-ff41e5",
+  "front": {
+    "brand": "ROAST.PET PRESENTS",
+    "pet": "Buster",
+    "card_line": "He falls asleep on the sofa every evening. I'd intervene, but honestly...",
+    "footer": "THE ROAST",
+    "photo": "pet-1.jpg",
+    "note": "Pet at podium, one killer line. No marketing overlay."
+  },
+  "inside_left": {
+    "copy": "TONIGHT'S ROASTER: Buster"
+  },
+  "inside_right": {
+    "teaser": "Buster has more to say.",
+    "qr_label": "WATCH YOUR ROAST",
+    "message": "Happy 50th Dad. Love Sophie and Buster."
+  },
+  "back": {
+    "brand": "roast.pet"
+  }
+}

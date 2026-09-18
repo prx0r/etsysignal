@@ -15,24 +15,22 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 
 
 def export(bundle_dir: str) -> dict:
+    """Export pet.json from a bundle's roast.json (canonical consumer)."""
     bdir = Path(bundle_dir)
     manifest = json.loads((bdir / "pipeline_manifest.json").read_text())
     order = manifest["order"]
-    beats = manifest["beats"]
-    card_dir = bdir / "card"
-
-    front = (card_dir / "front.txt").read_text().splitlines() if (card_dir / "front.txt").exists() else ["", ""]
-    punchlines = [b["text"] for b in beats if b["type"] == "punchline"]
+    roast = manifest.get("roast", {})
+    norder = manifest.get("normalized_order", {})
 
     pet = {
-        "petName": order.get("pet_name", "Buster"),
-        "recipient": order.get("recipient_name", "James"),
+        "petName": roast.get("visual", {}).get("pet", "buster").capitalize(),
+        "recipient": (norder.get("target", {}) or {}).get("name", "James"),
         "occasion": order.get("occasion", "birthday"),
-        "headline": front[0] if len(front) > 0 else "",
-        "subheadline": front[1] if len(front) > 1 else "",
-        "punchline": punchlines[0] if punchlines else "",
-        "signoff": order.get("signoff", ""),
-        "qrUrl": f"https://roast.pet/{manifest['slug']}",
+        "headline": roast.get("headline", ""),
+        "subheadline": roast.get("card_line", ""),
+        "punchline": roast.get("card_line", ""),
+        "signoff": roast.get("signoff", ""),
+        "qrUrl": f"https://roast.pet/r/{manifest['slug']}",
         "take1Label": "Original",
         "take2Label": manifest.get("style", "Meaner").capitalize(),
     }

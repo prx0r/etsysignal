@@ -6,7 +6,7 @@ Usage:
 
 Concepts (same dog, same card, same product):
   A "Magic card"   — phone over physical card, show erupting out of it.
-  B "Comedy first" — huge pet close-up behind desk, card foregrounded.
+  B "Comedy first" — huge pet close-up at podium, card foregrounded.
   C "Gift first"   — premium card photography, phone beside showing interview.
 
 Output per concept (listing/thumbs/):
@@ -29,7 +29,7 @@ THUMB = 150
 CONCEPTS = {
     "A": {
         "name": "Magic card",
-        "promise": "Phone over physical card; late-night show erupts out of it.",
+        "promise": "Phone over physical card; roast stage erupts out of it.",
         "zones": {
             "card":     {"box": [250, 1050, 1050, 1850], "fill": (245, 240, 230), "label": "CARD\nJAMES IS 50.\nBUSTER HAS NOTES."},
             "beam":     {"box": [700, 450, 1300, 1100],  "fill": (255, 220, 120), "label": "GLOW / ERUPTION"},
@@ -39,10 +39,10 @@ CONCEPTS = {
     },
     "B": {
         "name": "Comedy first",
-        "promise": "Huge pet close-up behind desk, physical card foregrounded.",
+        "promise": "Huge pet close-up at podium, physical card foregrounded.",
         "zones": {
             "pet":      {"box": [200, 150, 1800, 1250],  "fill": (150, 100, 60),  "label": "BUSTER HUGE\nBEHIND DESK"},
-            "desk":     {"box": [200, 1000, 1800, 1300], "fill": (90, 50, 30),    "label": "DESK + MIC"},
+            "podium":   {"box": [200, 1000, 1800, 1300], "fill": (90, 50, 30),    "label": "PODIUM + MIC"},
             "card":     {"box": [1150, 1300, 1800, 1850],"fill": (245, 240, 230), "label": "CARD\nJAMES IS 50."},
             "headline": {"box": [200, 1350, 1100, 1600], "fill": (180, 30, 30),   "label": "YOUR PET ROASTS YOU"},
         },
